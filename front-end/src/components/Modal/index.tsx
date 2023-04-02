@@ -1,8 +1,8 @@
 import {
   StyledModal,
-  StyledImage,
-  StyledTitle,
-  StyledDescription,
+  StyledForm,
+  StyledInput,
+  StyledDescriptionInput,
 } from './styles';
 
 interface CustomModalProps {
@@ -15,23 +15,22 @@ function CustomModal({ isOpen, setIsOpen }: CustomModalProps) {
     setIsOpen(!isOpen);
   }
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+  }
+
   return (
     <StyledModal
       isOpen={isOpen}
       onBackgroundClick={() => toggleModal()}
       onEscapeKeydown={() => toggleModal()}
     >
-      <StyledImage
-        src="https://www.sbb.ch/content/dam/internet/sharedimages/personen/GA-Hund.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
-        alt="animal"
-      />
-      <StyledTitle>Thor</StyledTitle>
-      <StyledDescription>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi quos iure
-        dolor distinctio eveniet fuga quidem maiores quia nihil expedita
-        dolores, aspernatur illum necessitatibus modi quisquam perferendis
-        voluptas. Dolor, quasi?
-      </StyledDescription>
+      <StyledForm onSubmit={(event) => handleSubmit(event)}>
+        <StyledInput required type="url" placeholder="image" />
+        <StyledInput required type="text" placeholder="name" />
+        <StyledDescriptionInput required placeholder="description" />
+        <button type="submit">register</button>
+      </StyledForm>
     </StyledModal>
   );
 }
