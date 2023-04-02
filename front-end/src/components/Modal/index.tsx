@@ -3,7 +3,7 @@ import {
   StyledImage,
   StyledTitle,
   StyledDescription,
-} from './style';
+} from './styles';
 
 interface CustomModalProps {
   isOpen: boolean;
@@ -26,12 +26,11 @@ function CustomModal({ isOpen, setIsOpen }: CustomModalProps) {
         alt="animal"
       />
       <StyledTitle>Thor</StyledTitle>
-      {/* 262 characters */}
       <StyledDescription>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi quos iure
         dolor distinctio eveniet fuga quidem maiores quia nihil expedita
         dolores, aspernatur illum necessitatibus modi quisquam perferendis
-        voluptas. Dolor, quasi? Dolor, quasi?Dolor, quasi? quasi?
+        voluptas. Dolor, quasi?
       </StyledDescription>
     </StyledModal>
   );

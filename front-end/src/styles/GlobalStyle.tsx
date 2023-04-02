@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
   }
   .leaflet-container {
     z-index: 1;

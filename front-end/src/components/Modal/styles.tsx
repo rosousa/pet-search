@@ -9,15 +9,15 @@ export const StyledImage = styled.img`
 `;
 
 export const StyledTitle = styled.h5`
-  font-size: 22px;
-  color: #000;
+  font-size: 1.3rem;
+  color: #3a3a3a;
 `;
 
 export const StyledDescription = styled.div`
-  /* background-color: red; */
-  font-size: 18px;
+  font-size: 1.1rem;
   width: 80%;
   height: 200px;
+  color: #474747;
   overflow: hidden;
 `;
 
