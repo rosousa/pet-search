@@ -1,7 +1,12 @@
+import { ModalProvider } from 'styled-react-modal';
 import Map from '../../components/Map';
 
 function Home() {
-  return <Map />;
+  return (
+    <ModalProvider>
+      <Map />
+    </ModalProvider>
+  );
 }
 
 export default Home;

@@ -6,6 +6,7 @@ import {
   TileLayer,
   useMapEvents,
 } from 'react-leaflet';
+import CustomModal from '../Modal';
 import { Container, Wrapper } from './style';
 
 interface ILocation {
@@ -29,8 +30,11 @@ function MapEvents({ setLocation }: MapEventsProps) {
 
 function Map() {
   const [location, setLocation] = useState<ILocation>({ lat: 0, lng: 0 });
+  const [isOpen, setIsOpen] = useState<boolean>(true);
+
   return (
     <Container>
+      <CustomModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <Wrapper>
         <MapContainer center={{ lat: 51.505, lng: -0.09 }} zoom={13}>
           <MapEvents setLocation={setLocation} />

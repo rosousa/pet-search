@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #000;
   width: 800px;
-  height: 800px;
+  height: 600px;
+  border-radius: 6px;
 `;
 
 export const Wrapper = styled.div`
