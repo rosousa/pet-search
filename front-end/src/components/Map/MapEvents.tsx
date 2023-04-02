@@ -11,7 +11,7 @@ interface MapEventsProps {
   isOpen: boolean;
 }
 
-function MapEvents({ setLocation, setIsOpen, isOpen }: MapEventsProps) {
+function MapEvents({ setLocation, setIsOpen, isOpen }: MapEventsProps): null {
   useMapEvents({
     click: (e) => {
       setLocation({ ...e.latlng });
