@@ -14,7 +14,6 @@ export const StyledModal = Modal.styled`
 `;
 
 export const StyledForm = styled.form`
-  /* background-color: slategray; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -28,6 +27,10 @@ export const StyledForm = styled.form`
     border: 1px solid #c2c2c2;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+  }
+
+  & textarea {
+    padding: 10px 5px;
   }
 
   & input,
