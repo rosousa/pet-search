@@ -2,8 +2,8 @@ import { Popup } from 'react-leaflet';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 800px;
-  height: 600px;
+  width: 85vw;
+  height: 85vh;
   border-radius: 6px;
 `;
 
@@ -43,10 +43,19 @@ export const StyledImage = styled.img`
   border-radius: 50%;
 `;
 
+// refactor
 export const StyledTitle = styled.h5`
   font-size: 1.3rem;
   color: #3a3a3a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 8px 0;
+
+  & > span {
+    font-size: 16px;
+    color: #9b9b9b;
+  }
 `;
 
 export const StyledDescription = styled.div`

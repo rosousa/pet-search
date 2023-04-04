@@ -35,12 +35,15 @@ function Map() {
                 src="http://cdn.shopify.com/s/files/1/0086/0795/7054/articles/Cat_s_Mind_x630.jpg?v=1624444348"
                 alt="animal"
               />
-              <StyledTitle>Thor</StyledTitle>
+              {/* refactor */}
+              <StyledTitle>
+                Thor <br />
+                <span>(00) 00000-0000</span>
+              </StyledTitle>
               <StyledDescription>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Adipisci at quos aut modi non nesciunt explicabo impedit sit
-                iusto commodi, maiores consectetur earum officia incidunt.
-                Maiores
+                iusto commodi, maiores maiores
               </StyledDescription>
             </StyledPopup>
           </Marker>
