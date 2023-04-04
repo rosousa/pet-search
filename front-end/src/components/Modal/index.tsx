@@ -27,7 +27,8 @@ function CustomModal({ isOpen, setIsOpen }: CustomModalProps) {
     >
       <StyledForm onSubmit={(event) => handleSubmit(event)}>
         <StyledInput required type="url" placeholder="image" />
-        <StyledInput required type="text" placeholder="name" />
+        <StyledInput required type="text" placeholder="name" maxLength={30} />
+        <StyledInput required type="text" placeholder="(00) 00000-0000" />
         <StyledDescriptionInput required placeholder="description" />
         <button type="submit">register</button>
       </StyledForm>
