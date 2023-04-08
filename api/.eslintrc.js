@@ -9,6 +9,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.eslint.json'],
+    tsconfigRootDir: __dirname
   },
   overrides: [
     {
