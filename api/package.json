@@ -10,7 +10,8 @@
     "migration:generate": "npx prisma migrate dev",
     "lint": "eslint src --ext .ts,.js --fix",
     "format": "prettier --write src/",
-    "test": "jest"
+    "test": "jest",
+    "seed": "ts-node src/seed/index.ts"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",

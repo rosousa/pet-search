@@ -6,11 +6,20 @@ export class MarkupRepository {
     return prisma.markup.findMany();
   }
 
-  async create({ lat, lng }: Pick<Markup, 'lat' | 'lng'>) {
+  async create({
+    name,
+    lat,
+    lng,
+    tel,
+    imageUrl,
+  }: Pick<Markup, 'name' | 'lat' | 'lng' | 'tel' | 'imageUrl'>) {
     return prisma.markup.create({
       data: {
+        name,
         lat,
         lng,
+        tel,
+        imageUrl,
       },
     });
   }

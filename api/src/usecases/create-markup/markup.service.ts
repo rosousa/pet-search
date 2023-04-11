@@ -5,9 +5,15 @@ export class CreateMarkupService {
   constructor(private markupRepository: MarkupRepository) {}
 
   public async execute({
+    name,
     lat,
     lng,
-  }: Pick<Markup, 'lat' | 'lng'>): Promise<any> {
-    return this.markupRepository.create({ lat, lng });
+    tel,
+    imageUrl,
+  }: Pick<
+    Markup,
+    'name' | 'lat' | 'lng' | 'tel' | 'imageUrl'
+  >): Promise<Markup> {
+    return this.markupRepository.create({ name, lat, lng, tel, imageUrl });
   }
 }
