@@ -1,11 +1,12 @@
-import { ModalProvider } from 'styled-react-modal';
 import Map from '../../components/Map';
 
 function Home() {
   return (
-    <ModalProvider>
-      <Map />
-    </ModalProvider>
+    <main className="w-screen h-screen flex">
+      <div className="w-full h-full">
+        <Map />
+      </div>
+    </main>
   );
 }
 
