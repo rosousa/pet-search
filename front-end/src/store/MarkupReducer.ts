@@ -6,6 +6,7 @@ type Markup = {
   lat: number;
   lng: number;
   tel: string;
+  description: string;
   imageUrl: string;
 };
 

@@ -1,6 +1,7 @@
 type Info = {
   name: string;
   tel: string;
+  description: string;
   image: string;
 };
 
@@ -17,12 +18,7 @@ function Card({ info }: { info: Info }) {
           <p className="font-semibold text-xl">{info.name}</p>
           <p className="text-zinc-500">{info.tel}</p>
         </div>
-        <p className="line-clamp-5">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-          ab consequuntur nobis soluta molestias deleniti totam doloribus ad
-          voluptates explicabo veniam officiis saepe nulla, a voluptatem
-          accusamus in quod odit.
-        </p>
+        <p className="line-clamp-5">{info.description}</p>
       </div>
     </div>
   );
