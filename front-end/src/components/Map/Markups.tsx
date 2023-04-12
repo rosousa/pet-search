@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Marker, Popup } from 'react-leaflet';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import { get } from '../../api';
-
-type Markup = {
-  id: number;
-  lat: number;
-  lng: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { updateMarkups } from '../../store/MarkupReducer';
 
 function Markups() {
-  const [markups, setMarkups] = useState<Markup[]>([]);
+  const markups = useSelector((state: RootState) => state.markup);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    get('/api/markup').then((data) => setMarkups(data));
-  }, []);
+    get('/api/markup').then((data) => {
+      dispatch(updateMarkups(data));
+    });
+  }, [dispatch]);
 
   return (
     <>
-      {markups.map((markup) => {
+      {markups.value.map((markup) => {
         return (
           <Marker
             key={markup.id}

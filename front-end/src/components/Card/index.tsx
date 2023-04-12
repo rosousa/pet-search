@@ -1,15 +1,21 @@
-function Card() {
+type Info = {
+  name: string;
+  tel: string;
+  image: string;
+};
+
+function Card({ info }: { info: Info }) {
   return (
-    <div className="w-11/12 h-44 rounded flex bg-slate-200 p-2 cursor-pointer">
+    <div className="w-11/12 h-44 rounded flex gap-x-3 bg-slate-200 p-2 cursor-pointer">
       <img
-        className="w-20 h-20 rounded-full object-cover box-content mr-2"
-        src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg"
+        className="w-20 h-20 rounded-lg object-cover"
+        src={info.image}
         alt="pet"
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <div className="flex items-center justify-between">
-          <p className="font-semibold text-xl">Tom</p>
-          <p className="text-zinc-500">(00) 00000-0000</p>
+          <p className="font-semibold text-xl">{info.name}</p>
+          <p className="text-zinc-500">{info.tel}</p>
         </div>
         <p className="line-clamp-5">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
