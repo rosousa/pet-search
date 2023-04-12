@@ -9,11 +9,16 @@ export class CreateMarkupService {
     lat,
     lng,
     tel,
+    description,
     imageUrl,
-  }: Pick<
-    Markup,
-    'name' | 'lat' | 'lng' | 'tel' | 'imageUrl'
-  >): Promise<Markup> {
-    return this.markupRepository.create({ name, lat, lng, tel, imageUrl });
+  }: Omit<Markup, 'id' | 'createdAt' | 'updatedAt'>): Promise<Markup> {
+    return this.markupRepository.create({
+      name,
+      lat,
+      lng,
+      tel,
+      description,
+      imageUrl,
+    });
   }
 }

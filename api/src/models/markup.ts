@@ -9,6 +9,8 @@ class Markup {
 
   tel: string;
 
+  description: string;
+
   imageUrl: string;
 
   createdAt: Date;
@@ -21,6 +23,7 @@ class Markup {
     lat,
     lng,
     tel,
+    description,
     imageUrl,
     createdAt,
     updatedAt,
@@ -30,6 +33,7 @@ class Markup {
     this.lat = lat;
     this.lng = lng;
     this.tel = tel;
+    this.description = description;
     this.imageUrl = imageUrl;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;

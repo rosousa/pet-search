@@ -1,10 +1,11 @@
 -- CreateTable
 CREATE TABLE `markup` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(20) NOT NULL,
     `lat` DOUBLE NOT NULL,
     `lng` DOUBLE NOT NULL,
-    `tel` VARCHAR(191) NOT NULL,
+    `tel` VARCHAR(11) NOT NULL,
+    `description` VARCHAR(200) NOT NULL,
     `imageUrl` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

@@ -11,12 +11,13 @@ datasource db {
 }
 
 model markup {
-  id        Int      @id @default(autoincrement())
-  name      String
-  lat       Float
-  lng       Float
-  tel       String
-  imageUrl  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(20)
+  lat         Float
+  lng         Float
+  tel         String   @db.VarChar(11)
+  description String   @db.VarChar(200)
+  imageUrl    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 }

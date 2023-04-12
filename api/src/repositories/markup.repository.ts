@@ -11,14 +11,16 @@ export class MarkupRepository {
     lat,
     lng,
     tel,
+    description,
     imageUrl,
-  }: Pick<Markup, 'name' | 'lat' | 'lng' | 'tel' | 'imageUrl'>) {
+  }: Omit<Markup, 'id' | 'updatedAt' | 'createdAt'>) {
     return prisma.markup.create({
       data: {
         name,
         lat,
         lng,
         tel,
+        description,
         imageUrl,
       },
     });
