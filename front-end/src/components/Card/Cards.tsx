@@ -15,6 +15,10 @@ function Cards() {
               tel: markup.tel,
               description: markup.description,
               image: markup.imageUrl,
+              location: {
+                lat: markup.lat,
+                lng: markup.lng,
+              },
             }}
             key={markup.id}
           />

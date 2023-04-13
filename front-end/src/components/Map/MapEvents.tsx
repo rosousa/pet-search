@@ -1,13 +1,13 @@
-import { useMapEvents } from 'react-leaflet';
+import { useMap } from 'react-leaflet';
 
-function MapEvents(): null {
-  useMapEvents({
-    click: (e) => {
-      // lat & lng
-      console.log(e.latlng.lat, e.latlng.lng);
-    },
-  });
+type Location = {
+  lat: number;
+  lng: number;
+};
 
+function MapEvents({ lat, lng }: Location) {
+  const map = useMap();
+  map.setView([lat, lng]);
   return null;
 }
 

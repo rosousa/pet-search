@@ -52,14 +52,24 @@ const markups = [
     imageUrl:
       'https://images.unsplash.com/photo-1561948955-570b270e7c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=601&q=80',
   },
+  {
+    name: 'Lucy',
+    lat: 11.505,
+    lng: 35.09,
+    tel: '55000000000',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1567883380016-ed16b7181152?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+  },
 ];
 
 export default async function createMarkupsSeed() {
   await prisma.$transaction(async (tx) => {
     const count = await tx.markup.count();
 
-    if (count === 5) {
-      return logger.info('Marcações já foram criados.');
+    if (count === markups.length) {
+      return logger.info('As marcações já foram criados.');
     }
 
     logger.info('Apagando todas as marcações existentes...');
