@@ -6,11 +6,11 @@ import store from '../../store';
 function Home() {
   return (
     <Provider store={store}>
-      <main className="w-screen h-screen flex justify-center items-center">
-        <div className="h-full w-2/6 bg-zinc-900">
+      <main className="w-screen h-screen flex flex-col items-center bg-zinc-900">
+        <div className="h-1/5 w-4/6">
           <Cards />
         </div>
-        <div className="w-full h-full z-0">
+        <div className="w-4/6 h-4/6 z-0">
           <Map />
         </div>
       </main>

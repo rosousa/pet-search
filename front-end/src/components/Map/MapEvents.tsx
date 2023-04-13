@@ -7,7 +7,7 @@ type Location = {
 
 function MapEvents({ lat, lng }: Location) {
   const map = useMap();
-  map.setView([lat, lng]);
+  if (lat !== 0 && lng !== 0) map.flyTo({ lat, lng }, map.getZoom());
   return null;
 }
 

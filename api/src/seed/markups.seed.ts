@@ -14,8 +14,8 @@ const markups = [
   },
   {
     name: 'Max',
-    lat: 41.505,
-    lng: -5.09,
+    lat: -12.72266,
+    lng: 30.38721,
     tel: '55000000000',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
@@ -24,8 +24,8 @@ const markups = [
   },
   {
     name: 'Milo',
-    lat: 31.505,
-    lng: -15.09,
+    lat: -24.07044,
+    lng: 128.2402,
     tel: '55000000000',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
@@ -34,8 +34,8 @@ const markups = [
   },
   {
     name: 'Bella',
-    lat: 21.505,
-    lng: -20.09,
+    lat: 27.37134,
+    lng: 8.86542,
     tel: '55000000000',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
@@ -44,8 +44,8 @@ const markups = [
   },
   {
     name: 'Louie',
-    lat: 11.505,
-    lng: -25.09,
+    lat: 45.53003,
+    lng: 103.49479,
     tel: '55000000000',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
@@ -54,8 +54,8 @@ const markups = [
   },
   {
     name: 'Lucy',
-    lat: 11.505,
-    lng: 35.09,
+    lat: 45.68979,
+    lng: 44.12799,
     tel: '55000000000',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
