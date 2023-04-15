@@ -6,7 +6,7 @@ function Cards() {
   const markups = useSelector((state: RootState) => state.markup);
 
   return (
-    <div className="h-full w-full py-3 gap-x-3 flex items-center overflow-x-auto overflow-y-hidden">
+    <>
       {markups.value.map((markup) => {
         return (
           <Card
@@ -24,7 +24,7 @@ function Cards() {
           />
         );
       })}
-    </div>
+    </>
   );
 }
 
