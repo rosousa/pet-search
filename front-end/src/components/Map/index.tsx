@@ -13,8 +13,8 @@ function Map() {
   });
 
   useEffect(() => {
-    setLocation({ ...markup.targetLocation });
-  }, [markup.targetLocation.lat]);
+    setLocation({ lat: markup.selectedPet.lat, lng: markup.selectedPet.lng });
+  }, [markup.selectedPet.lat]);
 
   return (
     <MapContainer center={{ lat: 51.505, lng: -0.09 }} zoom={13}>

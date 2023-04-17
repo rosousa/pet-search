@@ -10,16 +10,7 @@ function Cards() {
       {markups.value.map((markup) => {
         return (
           <Card
-            info={{
-              name: markup.name,
-              tel: markup.tel,
-              description: markup.description,
-              image: markup.imageUrl,
-              location: {
-                lat: markup.lat,
-                lng: markup.lng,
-              },
-            }}
+            markup={markup} 
             key={markup.id}
           />
         );

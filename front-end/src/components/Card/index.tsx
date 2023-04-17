@@ -1,34 +1,36 @@
-import { useDispatch } from 'react-redux';
-import { updateLocation } from '../../store/MarkupReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSelectedPet } from '../../store/MarkupReducer';
+import { RootState } from '../../store';
 
-type Info = {
+type Markup = {
+  id: number;
   name: string;
-  location: {
-    lat: number;
-    lng: number;
-  };
+  lat: number;
+  lng: number;
   tel: string;
   description: string;
-  image: string;
+  imageUrl: string;
 };
 
-function Card({ info }: { info: Info }) {
+function Card({ markup }: { markup: Markup }) {
+  const markupState = useSelector((state: RootState) => state.markup)
+
   const dispatch = useDispatch();
 
   function handleClick() {
     dispatch(
-      updateLocation({ lat: info.location.lat, lng: info.location.lng })
+      updateSelectedPet({ ...markup })
     );
   }
 
   return (
     <div
-      className="w-28 h-28 rounded flex bg-zinc-800 p-1 hover:brightness-75 cursor-pointer"
+      className={`w-28 h-28 rounded flex ${markupState.selectedPet.id === markup.id ? 'bg-blue-600' : 'bg-zinc-800'} hover:bg-blue-500 p-1 hover:brightness-110 cursor-pointer`}
       onClick={() => handleClick()}
     >
       <img
         className="w-full h-full rounded object-cover"
-        src={info.image}
+        src={markup.imageUrl}
         alt="pet"
       />
     </div>
