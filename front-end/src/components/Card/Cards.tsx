@@ -8,12 +8,7 @@ function Cards() {
   return (
     <>
       {markups.value.map((markup) => {
-        return (
-          <Card
-            markup={markup} 
-            key={markup.id}
-          />
-        );
+        return <Card key={markup.id} markup={markup} />;
       })}
     </>
   );

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { get } from '../../api';
-import { updateMarkups } from '../../store/MarkupReducer';
+import { updateMarkups, updateSelectedPet } from '../../store/MarkupReducer';
 
 function Markups() {
   const markups = useSelector((state: RootState) => state.markup);
@@ -16,16 +16,23 @@ function Markups() {
     });
   }, [dispatch]);
 
+  function handleClick(markup: any) {
+    dispatch(updateSelectedPet({ ...markup }));
+  }
+
   return (
     <>
       {markups.value.map((markup) => {
         return (
           <Marker
+            eventHandlers={{
+              click: (e) => {
+                handleClick(markup);
+              },
+            }}
             key={markup.id}
             position={{ lat: markup.lat, lng: markup.lng }}
-          >
-            <Popup>{markup.id}</Popup>
-          </Marker>
+          />
         );
       })}
     </>
