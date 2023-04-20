@@ -5,6 +5,7 @@ import store from '../../store';
 import Title from '../../components/Title';
 import Description from '../../components/Description';
 import CharityDog from '../../assets/charity-dog.svg';
+import CreateMarkup from '../../components/Create';
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function Home() {
           <div className="w-4/6 h-4/6 flex z-0 rounded overflow-hidden">
             <Map />
             <Description />
+            <CreateMarkup />
           </div>
         </main>
       </div>

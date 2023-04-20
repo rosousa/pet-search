@@ -3,7 +3,11 @@ import { Marker } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { get } from '../../api';
-import { updateMarkups, updateSelectedPet } from '../../store/MarkupReducer';
+import {
+  updateMarkups,
+  updateSelectedPet,
+  updateSelectedLocation,
+} from '../../store/MarkupReducer';
 
 function Markups() {
   const markups = useSelector((state: RootState) => state.markup);
@@ -18,6 +22,7 @@ function Markups() {
 
   function handleClick(markup: any) {
     dispatch(updateSelectedPet({ ...markup }));
+    dispatch(updateSelectedLocation({ selected: false }));
   }
 
   return (

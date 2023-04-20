@@ -11,9 +11,14 @@ type Markup = {
 };
 
 type InitialState = {
-  value: Markup[],
-  selectedPet: Markup
-}
+  value: Markup[];
+  selectedPet: Markup;
+  selectedLocation: {
+    selected: boolean;
+    lat: number;
+    lng: number;
+  };
+};
 
 const initialState: InitialState = {
   value: [],
@@ -25,6 +30,11 @@ const initialState: InitialState = {
     tel: '',
     description: '',
     imageUrl: '',
+  },
+  selectedLocation: {
+    selected: false,
+    lat: 0,
+    lng: 0,
   },
 };
 
@@ -38,9 +48,13 @@ const markupSlice = createSlice({
     updateSelectedPet: (state, action) => {
       return { ...state, selectedPet: { ...action.payload } };
     },
+    updateSelectedLocation: (state, action) => {
+      return { ...state, selectedLocation: { ...action.payload } };
+    },
   },
 });
 
-export const { updateMarkups, updateSelectedPet } = markupSlice.actions;
+export const { updateMarkups, updateSelectedPet, updateSelectedLocation } =
+  markupSlice.actions;
 
 export default markupSlice.reducer;
