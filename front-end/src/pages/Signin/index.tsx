@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router-dom';
+import { signIn } from '../../api';
 import logo from '../../assets/charity-dog.svg';
 
 const signInSchema = z.object({
@@ -15,6 +17,8 @@ const signInSchema = z.object({
 type signInForm = z.infer<typeof signInSchema>;
 
 function SignIn() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -23,8 +27,14 @@ function SignIn() {
     resolver: zodResolver(signInSchema),
   });
 
-  function handleSignIn(data: any) {
-    console.log(data);
+  function handleSignIn(data: { email: string; password: string }) {
+    const body = {
+      email: data.email,
+      password: data.password,
+    };
+    signIn('/api/sign-in', body).then(() => {
+      navigate('/');
+    });
   }
 
   return (

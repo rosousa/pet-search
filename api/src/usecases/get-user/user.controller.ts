@@ -8,7 +8,10 @@ export class UserController {
     const { email, password } = req.body;
 
     try {
-      await this.userService.execute({ email, password });
+      const session = await this.userService.execute({ email, password });
+      res.cookie('auth_token', session.token, {
+        httpOnly: true,
+      });
       return res.json({ message: 'OK' });
     } catch (err) {
       if (

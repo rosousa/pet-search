@@ -24,11 +24,9 @@ export class UserService {
       throw new Error('E-mail or password is invalid');
     }
 
-    await this.sessionRepository.create({
+    return this.sessionRepository.create({
       id: user.id,
       token,
     });
-
-    return user;
   }
 }

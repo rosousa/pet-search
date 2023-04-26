@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { signUp } from '../../api/index';
 import logo from '../../assets/charity-dog.svg';
 
 const signInSchema = z.object({
@@ -28,8 +29,13 @@ function SignUp() {
     resolver: zodResolver(signInSchema),
   });
 
-  function handleSignUp(data: any) {
-    console.log(data);
+  async function handleSignUp(data: any) {
+    const body = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    };
+    await signUp('/api/sign-up', body);
   }
 
   return (
