@@ -1,3 +1,4 @@
 import { MarkupRepository } from './markup.repository';
+import { UserRepository } from './user.repository';
 
-export { MarkupRepository };
+export { MarkupRepository, UserRepository };
