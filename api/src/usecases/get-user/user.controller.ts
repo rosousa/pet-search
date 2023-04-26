@@ -11,9 +11,13 @@ export class UserController {
       await this.userService.execute({ email, password });
       return res.json({ message: 'OK' });
     } catch (err) {
-      if (err instanceof Error) {
+      if (
+        err instanceof Error &&
+        err.message === 'E-mail or password is invalid'
+      ) {
         return res.status(401).json({ message: err.message });
       }
+      console.log(err);
       return res.sendStatus(500);
     }
   }

@@ -17,7 +17,7 @@ export class UserService {
     }
 
     const secret: string = process.env.JWT_SECRET!;
-    const token = jwt.sign(String(user?.id), secret);
+    const token = jwt.sign({ id: user.id }, secret);
     const passwordIsValid = bcrypt.compareSync(password, user?.passwordHash!);
 
     if (!passwordIsValid) {
