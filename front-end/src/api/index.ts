@@ -31,6 +31,12 @@ export const signIn = async (
   path: string,
   { email, password }: Omit<Credentials, 'username'>
 ) => {
-  const response = await api.post(path, { email, password });
+  const response = await api.post(
+    path,
+    { email, password },
+    {
+      withCredentials: true,
+    }
+  );
   return response.data;
 };
