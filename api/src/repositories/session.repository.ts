@@ -9,4 +9,12 @@ export class SessionRepository {
       },
     });
   }
+
+  public async getSession(userId: number) {
+    return prisma.userSession.count({
+      where: {
+        userId,
+      },
+    });
+  }
 }

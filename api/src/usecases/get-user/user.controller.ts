@@ -9,11 +9,21 @@ export class UserController {
     const { email, password } = req.body;
 
     try {
-      const session = await this.userService.execute({ email, password });
+      const { user, session } = await this.userService.execute({
+        email,
+        password,
+      });
       res.cookie(CookieKey.AuthToken, session.token, {
         httpOnly: true,
       });
-      return res.json({ message: 'OK' });
+      return res.json({
+        sucess: true,
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+        },
+      });
     } catch (err) {
       if (
         err instanceof Error &&

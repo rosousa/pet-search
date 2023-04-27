@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import markupReducer from './MarkupReducer';
+import userReducer from './UserReducer';
 
 const store = configureStore({
   reducer: {
     markup: markupReducer,
+    user: userReducer,
   },
 });
 

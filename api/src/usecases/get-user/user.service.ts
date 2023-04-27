@@ -17,16 +17,21 @@ export class UserService {
     }
 
     const secret: string = process.env.JWT_SECRET!;
-    const token = jwt.sign({ id: user.id }, secret);
+    const token = jwt.sign({ userId: user.id }, secret);
     const passwordIsValid = bcrypt.compareSync(password, user?.passwordHash!);
 
     if (!passwordIsValid) {
       throw new Error('E-mail or password is invalid');
     }
 
-    return this.sessionRepository.create({
+    const session = await this.sessionRepository.create({
       id: user.id,
       token,
     });
+
+    return {
+      user: { ...user },
+      session: { ...session },
+    };
   }
 }

@@ -10,6 +10,19 @@ export class UserRepository {
     });
   }
 
+  async getData(id: number) {
+    return prisma.user.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+      },
+    });
+  }
+
   async create({
     username,
     email,

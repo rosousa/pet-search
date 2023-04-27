@@ -47,3 +47,10 @@ export const checkSession = async (path: string) => {
   });
   return response.data;
 };
+
+export const removeSession = async (path: string) => {
+  const response = await api.get(path, {
+    withCredentials: true,
+  });
+  return response.data;
+};
