@@ -40,3 +40,10 @@ export const signIn = async (
   );
   return response.data;
 };
+
+export const checkSession = async (path: string) => {
+  const response = await api.get(path, {
+    withCredentials: true,
+  });
+  return response.data;
+};

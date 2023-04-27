@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { UserService } from './user.service';
+import { CookieKey } from '../../constants';
 
 export class UserController {
   constructor(private userService: UserService) {}
@@ -9,7 +10,7 @@ export class UserController {
 
     try {
       const session = await this.userService.execute({ email, password });
-      res.cookie('auth_token', session.token, {
+      res.cookie(CookieKey.AuthToken, session.token, {
         httpOnly: true,
       });
       return res.json({ message: 'OK' });
