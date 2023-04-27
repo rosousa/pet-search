@@ -1,9 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { updateSelectedLocation } from '../../store/MarkupReducer';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import validator from 'validator';
+import { createMarkup, removeSession } from '../../api';
 
 const createMarkupFormSchema = z.object({
   name: z
@@ -34,6 +38,10 @@ type createMarkupForm = z.infer<typeof createMarkupFormSchema>;
 
 function CreateMarkup() {
   const markup = useSelector((state: RootState) => state.markup);
+  const user = useSelector((state: RootState) => state.user);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -43,8 +51,22 @@ function CreateMarkup() {
     resolver: zodResolver(createMarkupFormSchema),
   });
 
-  function createMarkup(data: any) {
-    console.log(data);
+  function create(data: any) {
+    createMarkup('/api/markup', {
+      name: user.username,
+      lat: markup.selectedLocation.lat,
+      lng: markup.selectedLocation.lng,
+      tel: data.tel,
+      description: data.description,
+      imageUrl: data.imageURL,
+    })
+      .then(() => {
+        dispatch(updateSelectedLocation({ selected: false }));
+      })
+      .catch(() => {
+        removeSession('./api/logout');
+        navigate('/sign-in');
+      });
   }
 
   return (
@@ -55,7 +77,7 @@ function CreateMarkup() {
     >
       <div className="w-5/6 h-full flex flex-col items-center border-2 border-zinc-700 bg-zinc-800 rounded text-white text-center">
         <form
-          onSubmit={handleSubmit(createMarkup)}
+          onSubmit={handleSubmit(create)}
           className="flex flex-col items-center gap-y-5 p-3"
         >
           <div className="flex flex-col items-center gap-y-2">

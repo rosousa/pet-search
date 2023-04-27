@@ -1,9 +1,13 @@
-import { MarkupRepository } from '../../repositories';
+import { MarkupRepository, SessionRepository } from '../../repositories';
 import { CreateMarkupService } from './markup.service';
 import { CreateMarkupController } from './markup.controller';
 
 const markupRepository = new MarkupRepository();
-const createMarkupService = new CreateMarkupService(markupRepository);
+const sessionRepository = new SessionRepository();
+const createMarkupService = new CreateMarkupService(
+  markupRepository,
+  sessionRepository
+);
 export const createMarkupController = new CreateMarkupController(
   createMarkupService
 );

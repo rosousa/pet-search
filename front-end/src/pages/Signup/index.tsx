@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,13 +30,15 @@ function SignUp() {
     resolver: zodResolver(signInSchema),
   });
 
-  async function handleSignUp(data: any) {
+  const navigate = useNavigate();
+
+  function handleSignUp(data: any) {
     const body = {
       username: data.username,
       email: data.email,
       password: data.password,
     };
-    await signUp('/api/sign-up', body);
+    signUp('/api/sign-up', body).then(() => navigate('/sign-in'));
   }
 
   return (

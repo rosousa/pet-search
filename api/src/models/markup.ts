@@ -3,6 +3,8 @@ class Markup {
 
   name: string;
 
+  userId: number;
+
   lat: number;
 
   lng: number;
@@ -20,6 +22,7 @@ class Markup {
   constructor({
     id,
     name,
+    userId,
     lat,
     lng,
     tel,
@@ -30,6 +33,7 @@ class Markup {
   }: Markup) {
     this.id = id;
     this.name = name;
+    this.userId = userId;
     this.lat = lat;
     this.lng = lng;
     this.tel = tel;

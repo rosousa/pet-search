@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 type Markup = {
   id: number;
   name: string;
+  userId: number;
   lat: number;
   lng: number;
   tel: string;
@@ -25,6 +26,7 @@ const initialState: InitialState = {
   selectedPet: {
     id: 0,
     name: '',
+    userId: 0,
     lat: 0,
     lng: 0,
     tel: '',

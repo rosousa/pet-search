@@ -8,6 +8,7 @@ import { RootState } from '../../store';
 type Markup = {
   id: number;
   name: string;
+  userId: number;
   lat: number;
   lng: number;
   tel: string;

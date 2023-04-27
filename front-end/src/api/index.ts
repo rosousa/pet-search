@@ -9,7 +9,25 @@ export const api = axios.create({
 });
 
 export const get = async (path: string) => {
-  const response = await api.get(path);
+  const response = await api.get(path, {
+    withCredentials: true,
+  });
+  return response.data;
+};
+
+type Markup = {
+  name: string;
+  lat: number;
+  lng: number;
+  tel: string;
+  description: string;
+  imageUrl: string;
+};
+
+export const createMarkup = async (path: string, body: Markup) => {
+  const response = await api.post(path, body, {
+    withCredentials: true,
+  });
   return response.data;
 };
 

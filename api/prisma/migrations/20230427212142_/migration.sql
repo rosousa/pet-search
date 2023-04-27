@@ -2,6 +2,7 @@
 CREATE TABLE `Markup` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(20) NOT NULL,
+    `userId` INTEGER NOT NULL,
     `lat` DOUBLE NOT NULL,
     `lng` DOUBLE NOT NULL,
     `tel` VARCHAR(11) NOT NULL,
@@ -37,6 +38,9 @@ CREATE TABLE `UserSession` (
     UNIQUE INDEX `UserSession_token_key`(`token`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `Markup` ADD CONSTRAINT `Markup_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `UserSession` ADD CONSTRAINT `UserSession_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

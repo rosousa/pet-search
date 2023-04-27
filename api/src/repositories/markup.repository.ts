@@ -8,6 +8,7 @@ export class MarkupRepository {
 
   async create({
     name,
+    userId,
     lat,
     lng,
     tel,
@@ -17,6 +18,7 @@ export class MarkupRepository {
     return prisma.markup.create({
       data: {
         name,
+        userId,
         lat,
         lng,
         tel,

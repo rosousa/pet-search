@@ -13,6 +13,8 @@ datasource db {
 model Markup {
   id          Int      @id @default(autoincrement())
   name        String   @db.VarChar(20)
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
   lat         Float
   lng         Float
   tel         String   @db.VarChar(11)
@@ -27,6 +29,7 @@ model User {
   username     String        @db.VarChar(25)
   email        String        @unique @db.VarChar(50)
   passwordHash String
+  Markup       Markup[]
   sessions     UserSession[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
