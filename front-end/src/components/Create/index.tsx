@@ -10,20 +10,6 @@ import validator from 'validator';
 import { createMarkup, removeSession } from '../../api';
 
 const createMarkupFormSchema = z.object({
-  name: z
-    .string()
-    .nonempty('Name is required')
-    .min(4, 'Name is too short')
-    .max(20)
-    .transform((name) => {
-      return name
-        .trim()
-        .split(' ')
-        .map((word) => {
-          return word[0].toLocaleUpperCase().concat(word.substring(1));
-        })
-        .join(' ');
-    }),
   tel: z.string().min(11).max(11).refine(validator.isMobilePhone),
   description: z.string().trim().min(20, 'Description is too short').max(200),
   imageURL: z
@@ -80,19 +66,6 @@ function CreateMarkup() {
           onSubmit={handleSubmit(create)}
           className="flex flex-col items-center gap-y-5 p-3"
         >
-          <div className="flex flex-col items-center gap-y-2">
-            <label htmlFor="" className="text-md font-bold">
-              Name
-            </label>
-            <input
-              type="text"
-              className="h-10 w-11/12 rounded text-xl bg-zinc-900 px-2 focus:outline-none"
-              {...register('name')}
-            />
-            {errors.name && (
-              <span className="text-red-400">{errors.name.message}</span>
-            )}
-          </div>
           <div className="flex flex-col items-center gap-y-1">
             <label htmlFor="" className="text-md font-bold">
               Phone
