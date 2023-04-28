@@ -49,7 +49,7 @@ function SignUp() {
       </div>
       <form
         onSubmit={handleSubmit(handleSignUp)}
-        className="flex flex-col gap-y-8"
+        className="flex flex-col items-center gap-y-8"
       >
         <div className="flex flex-col items-center gap-y-2">
           <label className="text-md font-bold">Username</label>
@@ -90,9 +90,15 @@ function SignUp() {
             </span>
           )}
         </div>
-        <button className="font-bold bg-emerald-600 h-12 text-sm rounded mt-4 hover:brightness-75">
+        <button className="font-bold w-full bg-emerald-600 h-12 text-sm rounded mt-4 hover:brightness-75">
           SIGNUP
         </button>
+        <span className="text-sm">
+          Already have an account?{' '}
+          <a href="/sign-in" className="underline font-bold">
+            Sign In
+          </a>
+        </span>
       </form>
     </div>
   );

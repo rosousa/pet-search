@@ -1,70 +1,58 @@
 import prisma from '../config/prisma';
 import { logger } from '../logger';
 
-const markups = [
+const users = [
   {
-    name: 'Tom',
-    lat: 51.505,
-    lng: -0.09,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=738&q=80',
+    username: 'William Smith',
+    email: 'williamsmith@email.com',
+    passwordHash: 'example',
   },
   {
-    name: 'Max',
-    lat: -12.72266,
-    lng: 30.38721,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1626736637845-53045bb9695b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80',
+    username: 'Elizabeth Taylor',
+    email: 'elizabethtaylor@email.com',
+    passwordHash: 'example',
   },
   {
-    name: 'Milo',
-    lat: -24.07044,
-    lng: 128.2402,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1472053092455-ee16a8b358b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    name: 'Bella',
-    lat: 27.37134,
-    lng: 8.86542,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
-  },
-  {
-    name: 'Louie',
-    lat: 45.53003,
-    lng: 103.49479,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1561948955-570b270e7c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=601&q=80',
-  },
-  {
-    name: 'Lucy',
-    lat: 45.68979,
-    lng: 44.12799,
-    tel: '55000000000',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1567883380016-ed16b7181152?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    username: 'James Wilson',
+    email: 'jameswilson@email.com',
+    passwordHash: 'example',
   },
 ];
 
-export default async function createMarkupsSeed() {
+const markups = [
+  {
+    name: 'William Smith',
+    userId: 1,
+    lat: 51.52065502929,
+    lng: -0.08863091468811037,
+    tel: '11223344556',
+    description: 'Lorem ipsum dolor sit amet veniam.',
+    imageUrl:
+      'https://smb.ibsrv.net/imageresizer/image/article_manager/1200x1200/20164/308225/heroimage0.288665001627055597.jpg',
+  },
+  {
+    name: 'Elizabeth Taylor',
+    userId: 2,
+    lat: 51.52091112689193,
+    lng: -0.09108782205178745,
+    tel: '11223344556',
+    description: 'Lorem ipsum dolor sit amet veniam.',
+    imageUrl:
+      'https://www.thesprucepets.com/thmb/z9TGzAZLVjA6hYMLr0RrDmawfeY=/3119x0/filters:no_upscale():strip_icc()/GettyImages-107109200-0a22adeba60548d0bd0c51ef55123546.jpg',
+  },
+  {
+    name: 'James Wilson',
+    userId: 3,
+    lat: 51.51974581732406,
+    lng: -0.09108159933194805,
+    tel: '11223344556',
+    description: 'Lorem ipsum dolor sit amet veniam.',
+    imageUrl:
+      'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F08%2F04%2Fwhite-samoyed-field-flowers-997016774-2000.jpg',
+  },
+];
+
+export async function createMarkupsSeed() {
   await prisma.$transaction(async (tx) => {
     const count = await tx.markup.count();
 
@@ -81,5 +69,25 @@ export default async function createMarkupsSeed() {
     });
 
     return logger.info(`Criadas ${markups.length} novas marcações.`);
+  });
+}
+
+export async function createUsersSeed() {
+  await prisma.$transaction(async (tx) => {
+    const count = await tx.user.count();
+
+    if (count === users.length) {
+      return logger.info('Os usuários já foram criados');
+    }
+
+    logger.info('Apagando todos os usuários existesntes...');
+    await tx.user.deleteMany();
+
+    logger.info('Criando novos usuários...');
+    await tx.user.createMany({
+      data: users,
+    });
+
+    return logger.info(`Criados ${users.length} novos usuários.`);
   });
 }
