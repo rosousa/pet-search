@@ -10,9 +10,13 @@ type Markup = {
   imageUrl: string;
 };
 
+type MarkupWithUserName = Markup & {
+  name: string;
+};
+
 type InitialState = {
   value: Markup[];
-  selectedPet: Markup;
+  selectedPet: MarkupWithUserName;
   selectedLocation: {
     selected: boolean;
     lat: number;
@@ -24,6 +28,7 @@ const initialState: InitialState = {
   value: [],
   selectedPet: {
     id: 0,
+    name: '',
     userId: 0,
     lat: 0,
     lng: 0,
