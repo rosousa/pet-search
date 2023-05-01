@@ -1,25 +1,18 @@
-FROM node:14-alpine
+FROM node:15-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
-
-COPY . /app
+COPY prisma ./prisma/
 
 RUN npm install
 
-RUN npx prisma init --provider=mysql
+COPY . .
 
-COPY prisma/schema.prisma ./prisma/
-
-RUN npx prisma generate
-
-RUN npx prisma migrate deploy
-
-RUN npm run seed
-
-RUN npm run build
+ENV PORT=3000
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+RUN npx prisma generate
+
+CMD [ "npm", "run", "dev:migrate" ]

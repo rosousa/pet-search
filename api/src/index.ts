@@ -19,6 +19,10 @@ app.use(cookieParser());
 
 app.use(router);
 
+app.get('/api/health', (req: any, res: any) => {
+  return res.json({ message: 'Alive' });
+});
+
 const server = http.createServer(app);
 
 const port = process.env.PORT || 3000;

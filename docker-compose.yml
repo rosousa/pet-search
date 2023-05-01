@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: 'my-user'
+      MYSQL_PASSWORD: 'my-user-password'
+      MYSQL_DATABASE: 'petsearch'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  api:
+    build: "./api"
+    container_name: api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql://root:password@db:3306/petsearch
+      - JWT_SECRET=super_secret
+
+  web:
+    build: "./front-end"
+    container_name: web
+    ports:
+      - "3333:3333"
+    depends_on:
+      - api
+    
+volumes:
+    mysql_data:
