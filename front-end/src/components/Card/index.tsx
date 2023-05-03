@@ -8,7 +8,6 @@ import { Markup } from '../../types';
 
 function Card({ markup }: { markup: Markup }) {
   const markupState = useSelector((state: RootState) => state.markup);
-
   const dispatch = useDispatch();
 
   function handleClick() {

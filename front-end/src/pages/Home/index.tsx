@@ -1,17 +1,15 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import Cards from '../../components/Card/Cards';
 import Map from '../../components/Map';
-import { RootState } from '../../store';
 import Title from '../../components/Title';
 import Description from '../../components/Description';
 import CharityDog from '../../assets/charity-dog.svg';
 import CreateMarkup from '../../components/Create';
-
-import { useEffect } from 'react';
 import { checkSession, removeSession } from '../../api';
-
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { updateUser } from '../../store/UserReducer';
 
 function Home() {

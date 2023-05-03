@@ -5,11 +5,11 @@ import { RootState } from '../../store';
 import { updateSelectedLocation } from '../../store/MarkupReducer';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { MarkupSchema } from '../../schemas';
+import { markupSchema } from '../../schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createMarkup, removeSession } from '../../api';
 
-type createMarkupForm = z.infer<typeof MarkupSchema>;
+type markupForm = z.infer<typeof markupSchema>;
 
 function CreateMarkup() {
   const markup = useSelector((state: RootState) => state.markup);
@@ -22,8 +22,8 @@ function CreateMarkup() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<createMarkupForm>({
-    resolver: zodResolver(MarkupSchema),
+  } = useForm<markupForm>({
+    resolver: zodResolver(markupSchema),
   });
 
   function create(data: any) {

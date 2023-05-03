@@ -2,19 +2,11 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
+import { LoginSchema } from '../../schemas';
 import { signIn } from '../../api';
 import logo from '../../assets/charity-dog.svg';
 
-const signInSchema = z.object({
-  email: z.string().min(10).max(50).nonempty(),
-  password: z
-    .string()
-    .nonempty()
-    .min(4, 'Password must have a minimum of 4 characters')
-    .max(50),
-});
-
-type signInForm = z.infer<typeof signInSchema>;
+type LoginForm = z.infer<typeof LoginSchema>;
 
 function SignIn() {
   const navigate = useNavigate();
@@ -23,8 +15,8 @@ function SignIn() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<signInForm>({
-    resolver: zodResolver(signInSchema),
+  } = useForm<LoginForm>({
+    resolver: zodResolver(LoginSchema),
   });
 
   function handleSignIn(data: { email: string; password: string }) {
