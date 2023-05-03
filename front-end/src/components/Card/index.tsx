@@ -4,16 +4,7 @@ import {
   updateSelectedLocation,
 } from '../../store/MarkupReducer';
 import { RootState } from '../../store';
-
-type Markup = {
-  id: number;
-  userId: number;
-  lat: number;
-  lng: number;
-  tel: string;
-  description: string;
-  imageUrl: string;
-};
+import { Markup } from '../../types';
 
 function Card({ markup }: { markup: Markup }) {
   const markupState = useSelector((state: RootState) => state.markup);

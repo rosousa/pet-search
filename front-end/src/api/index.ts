@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { Markup } from '../types';
+
 export const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 20000,
@@ -15,16 +17,10 @@ export const get = async (path: string) => {
   return response.data;
 };
 
-type Markup = {
-  name: string;
-  lat: number;
-  lng: number;
-  tel: string;
-  description: string;
-  imageUrl: string;
-};
-
-export const createMarkup = async (path: string, body: Markup) => {
+export const createMarkup = async (
+  path: string,
+  body: Omit<Markup, 'id' | 'userId'>
+) => {
   const response = await api.post(path, body, {
     withCredentials: true,
   });

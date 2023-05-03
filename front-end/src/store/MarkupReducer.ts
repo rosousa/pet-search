@@ -1,22 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type Markup = {
-  id: number;
-  userId: number;
-  lat: number;
-  lng: number;
-  tel: string;
-  description: string;
-  imageUrl: string;
-};
-
-type MarkupWithUserName = Markup & {
-  name: string;
-};
+import { Markup } from '../types/';
 
 type InitialState = {
   value: Markup[];
-  selectedPet: MarkupWithUserName;
+  selectedPet: Markup;
   selectedLocation: {
     selected: boolean;
     lat: number;

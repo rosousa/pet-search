@@ -5,22 +5,11 @@ import { RootState } from '../../store';
 import { updateSelectedLocation } from '../../store/MarkupReducer';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { MarkupSchema } from '../../schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import validator from 'validator';
 import { createMarkup, removeSession } from '../../api';
 
-const createMarkupFormSchema = z.object({
-  tel: z.string().min(11).max(11).refine(validator.isMobilePhone),
-  description: z.string().trim().min(20, 'Description is too short').max(200),
-  imageURL: z
-    .string()
-    .trim()
-    .url('Invalid image URL')
-    .min(20, 'URL must be at least 20 characters long')
-    .max(300),
-});
-
-type createMarkupForm = z.infer<typeof createMarkupFormSchema>;
+type createMarkupForm = z.infer<typeof MarkupSchema>;
 
 function CreateMarkup() {
   const markup = useSelector((state: RootState) => state.markup);
@@ -34,7 +23,7 @@ function CreateMarkup() {
     handleSubmit,
     formState: { errors },
   } = useForm<createMarkupForm>({
-    resolver: zodResolver(createMarkupFormSchema),
+    resolver: zodResolver(MarkupSchema),
   });
 
   function create(data: any) {

@@ -1,12 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from '../types';
 
-type InitialState = {
-  userId: number;
-  email: string;
-  username: string;
-};
-
-const initialState: InitialState = {
+const initialState: User = {
   userId: 0,
   username: '',
   email: '',
