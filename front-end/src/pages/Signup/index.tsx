@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SignupSchema } from '../../schemas';
-import { signUp } from '../../api/index';
-import logo from '../../assets/charity-dog.svg';
+import { SignupSchema } from '@/schemas';
+import { signUp } from '@/api/index';
+import logo from '@/assets/charity-dog.svg';
 
 type SignupForm = z.infer<typeof SignupSchema>;
 

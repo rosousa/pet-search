@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Markup } from '../types';
+import { Markup } from '@/types';
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,

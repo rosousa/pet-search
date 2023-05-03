@@ -2,13 +2,9 @@ import { useMap } from 'react-leaflet';
 import {
   updateSelectedPet,
   updateSelectedLocation,
-} from '../../store/MarkupReducer';
+} from '@/store/MarkupReducer';
 import { useDispatch } from 'react-redux';
-
-type Location = {
-  lat: number;
-  lng: number;
-};
+import { Location } from '@/types';
 
 function MapEvents({ lat, lng }: Location) {
   const map = useMap();

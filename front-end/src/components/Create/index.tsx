@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import { updateSelectedLocation } from '../../store/MarkupReducer';
+import { RootState } from '@/store';
+import { updateSelectedLocation } from '@/store/MarkupReducer';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { markupSchema } from '../../schemas';
+import { MarkupSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createMarkup, removeSession } from '../../api';
+import { createMarkup, removeSession } from '@/api';
 
-type markupForm = z.infer<typeof markupSchema>;
+type markupForm = z.infer<typeof MarkupSchema>;
 
 function CreateMarkup() {
   const markup = useSelector((state: RootState) => state.markup);
@@ -23,7 +23,7 @@ function CreateMarkup() {
     handleSubmit,
     formState: { errors },
   } = useForm<markupForm>({
-    resolver: zodResolver(markupSchema),
+    resolver: zodResolver(MarkupSchema),
   });
 
   function create(data: any) {

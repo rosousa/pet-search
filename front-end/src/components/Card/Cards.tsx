@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Card from '.';
-import { RootState } from '../../store';
+import { RootState } from '@/store';
 
 function Cards() {
   const markups = useSelector((state: RootState) => state.markup);

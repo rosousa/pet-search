@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   updateSelectedPet,
   updateSelectedLocation,
-} from '../../store/MarkupReducer';
-import { RootState } from '../../store';
-import { Markup } from '../../types';
+} from '@/store/MarkupReducer';
+import { RootState } from '@/store';
+import { Markup } from '@/types';
 
 function Card({ markup }: { markup: Markup }) {
   const markupState = useSelector((state: RootState) => state.markup);

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Markup } from '../types/';
+import { Markup } from '@/types/';
 
 type InitialState = {
   value: Markup[];

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Marker } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import { get } from '../../api';
+import { RootState } from '@/store';
+import { get } from '@/api';
 import {
   updateMarkups,
   updateSelectedPet,
   updateSelectedLocation,
-} from '../../store/MarkupReducer';
+} from '@/store/MarkupReducer';
 
 function Markups() {
   const markups = useSelector((state: RootState) => state.markup);

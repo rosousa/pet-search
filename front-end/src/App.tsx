@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './styles/global.css';
-import Home from './pages/Home';
-import SignIn from './pages/Signin';
-import SignUp from './pages/Signup';
+import '@/styles/global.css';
+import Home from '@/pages/Home';
+import SignIn from '@/pages/Signin';
+import SignUp from '@/pages/Signup';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from '@/store';
 
 function App() {
   return (

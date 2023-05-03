@@ -2,7 +2,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 import MapEvents from './MapEvents';
 import Markups from './Markups';
-import { RootState } from '../../store';
+import { RootState } from '@/store';
 import { useEffect, useState } from 'react';
 
 function Map() {

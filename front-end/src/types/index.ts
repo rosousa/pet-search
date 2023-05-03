@@ -1,2 +1,3 @@
-export type { Markup } from './markup';
-export type { User } from './user';
+export type { Markup } from './Markup';
+export type { User } from './User';
+export type { Location } from './Location';

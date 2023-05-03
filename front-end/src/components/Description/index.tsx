@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState } from '@/store';
 
 function Description() {
   const markup = useSelector((state: RootState) => state.markup);
