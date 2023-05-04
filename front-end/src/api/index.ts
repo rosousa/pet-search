@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Markup } from '@/types';
+import { Markup, Credentials } from '@/types';
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -27,13 +27,7 @@ export const createMarkup = async (
   return response.data;
 };
 
-type Credentials = {
-  username: string;
-  email: string;
-  password: string;
-};
-
-export const signUp = async (
+export const signup = async (
   path: string,
   { username, email, password }: Credentials
 ) => {
@@ -41,7 +35,7 @@ export const signUp = async (
   return response.data;
 };
 
-export const signIn = async (
+export const login = async (
   path: string,
   { email, password }: Omit<Credentials, 'username'>
 ) => {

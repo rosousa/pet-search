@@ -3,12 +3,12 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SignupSchema } from '@/schemas';
-import { signUp } from '@/api/index';
+import { signup } from '@/api/index';
 import logo from '@/assets/charity-dog.svg';
 
 type SignupForm = z.infer<typeof SignupSchema>;
 
-function SignUp() {
+function Signup() {
   const {
     register,
     handleSubmit,
@@ -19,13 +19,13 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  function handleSignUp(data: any) {
+  function handleSignup(data: any) {
     const body = {
       username: data.username,
       email: data.email,
       password: data.password,
     };
-    signUp('/api/sign-up', body).then(() => navigate('/sign-in'));
+    signup('/api/sign-up', body).then(() => navigate('/sign-in'));
   }
 
   return (
@@ -35,7 +35,7 @@ function SignUp() {
         <img className="w-20" src={logo} alt="logo" />
       </div>
       <form
-        onSubmit={handleSubmit(handleSignUp)}
+        onSubmit={handleSubmit(handleSignup)}
         className="flex flex-col items-center gap-y-8"
       >
         <div className="flex flex-col items-center gap-y-2">
@@ -91,4 +91,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;

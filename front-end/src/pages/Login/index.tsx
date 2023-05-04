@@ -3,12 +3,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 import { LoginSchema } from '@/schemas';
-import { signIn } from '@/api';
+import { login } from '@/api';
 import logo from '@/assets/charity-dog.svg';
 
 type LoginForm = z.infer<typeof LoginSchema>;
 
-function SignIn() {
+function Login() {
   const navigate = useNavigate();
 
   const {
@@ -19,12 +19,12 @@ function SignIn() {
     resolver: zodResolver(LoginSchema),
   });
 
-  function handleSignIn(data: { email: string; password: string }) {
+  function handleLogin(data: { email: string; password: string }) {
     const body = {
       email: data.email,
       password: data.password,
     };
-    signIn('/api/sign-in', body).then(() => {
+    login('/api/sign-in', body).then(() => {
       navigate('/');
     });
   }
@@ -36,7 +36,7 @@ function SignIn() {
         <img className="w-20" src={logo} alt="logo" />
       </div>
       <form
-        onSubmit={handleSubmit(handleSignIn)}
+        onSubmit={handleSubmit(handleLogin)}
         className="flex flex-col items-center gap-y-8"
       >
         <div className="flex flex-col items-center gap-y-2">
@@ -79,4 +79,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Login;
