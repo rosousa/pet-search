@@ -1,4 +1,4 @@
-class Markup {
+export class Markup {
   id: number;
 
   name: string;
@@ -43,5 +43,3 @@ class Markup {
     this.updatedAt = updatedAt;
   }
 }
-
-export default Markup;

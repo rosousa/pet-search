@@ -1,4 +1,4 @@
-class User {
+export class User {
   id: number;
 
   username: string;
@@ -27,5 +27,3 @@ class User {
     this.updatedAt = updatedAt;
   }
 }
-
-export default User;

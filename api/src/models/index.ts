@@ -1,3 +1,2 @@
-import Markup from './markup';
-
-export { Markup };
+export { Markup } from './markup';
+export { User } from './user';

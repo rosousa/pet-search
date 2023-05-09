@@ -1,5 +1,5 @@
 import prisma from '../config/prisma';
-import User from '../models/user';
+import { User } from '../models';
 
 export class UserRepository {
   async get(email: string): Promise<User | null> {
